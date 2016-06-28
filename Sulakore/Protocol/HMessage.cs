@@ -3,6 +3,7 @@ using System.Text;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Linq;
 
 namespace Sulakore.Protocol
 {
@@ -181,6 +182,122 @@ namespace Sulakore.Protocol
 
             _read.Add(value);
             return value;
+        }
+        public int[] ReadIntegerArray(ref int position)
+        {
+            int arrayLength = ReadInteger();
+            int[] array = new int[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                array[i] = ReadInteger();
+            return array;
+        }
+        public int[] ReadIntegerArray()
+        {
+            return ReadIntegerArray(ref _position);
+        }
+        public int[] ReadIntegerArray(int position)
+        {
+            return ReadIntegerArray(ref position);
+        }
+        public List<int> ReadIntegerList(ref int position)
+        {
+            return ReadIntegerArray(ref position).ToList();
+        }
+        public List<int> ReadIntegerList()
+        {
+            return ReadIntegerList(ref _position);
+        }
+        public List<int> ReadIntegerList(int position)
+        {
+            return ReadIntegerList(ref position);
+        }
+        public bool[] ReadBooleanArray(ref int position)
+        {
+            int arrayLength = ReadInteger();
+            bool[] array = new bool[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                array[i] = ReadBoolean();
+            return array;
+        }
+        public bool[] ReadBooleanArray()
+        {
+            return ReadBooleanArray(ref _position);
+        }
+        public bool[] ReadBooleanArray(int position)
+        {
+            return ReadBooleanArray(ref position);
+        }
+        public List<bool> ReadBooleanList(ref int position)
+        {
+            return ReadBooleanArray(ref position).ToList();
+        }
+        public List<bool> ReadBooleanList()
+        {
+            return ReadBooleanList(ref _position);
+        }
+        public List<bool> ReadBooleanList(int position)
+        {
+            return ReadBooleanList(ref position);
+        }
+        public string[] ReadStringArray(ref int position)
+        {
+            int arrayLength = ReadInteger();
+            string[] array = new string[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                array[i] = ReadString();
+            return array;
+        }
+        public string[] ReadStringArray()
+        {
+            return ReadStringArray(ref _position);
+        }
+        public string[] ReadStringArray(int position)
+        {
+            return ReadStringArray(ref position);
+        }
+        public List<string> ReadStringList(ref int position)
+        {
+            return ReadStringArray(ref position).ToList();
+        }
+        public List<string> ReadStringList()
+        {
+            return ReadStringList(ref _position);
+        }
+        public List<string> ReadStringList(int position)
+        {
+            return ReadStringList(ref position);
+        }
+        public ushort[] ReadShortArray(ref int position)
+        {
+            int arrayLength = ReadInteger();
+            ushort[] array = new ushort[arrayLength];
+
+            for (int i = 0; i < arrayLength; i++)
+                array[i] = ReadShort();
+            return array;
+        }
+        public ushort[] ReadShortArray()
+        {
+            return ReadShortArray(ref _position);
+        }
+        public ushort[] ReadShortArray(int position)
+        {
+            return ReadShortArray(ref position);
+        }
+        public List<ushort> ReadShortList(ref int position)
+        {
+            return ReadShortArray(ref position).ToList();
+        }
+        public List<ushort> ReadShortList()
+        {
+            return ReadShortList(ref _position);
+        }
+        public List<ushort> ReadShortList(int position)
+        {
+            return ReadShortList(ref position);
         }
         #endregion
         #region Write Methods
